@@ -30,11 +30,6 @@ bool VLBA_header::check_header(uint8_t mask) {
 bool VLBA_header::is_valid(uint8_t mask) {
   for (size_t i=0*N; i<32*N; i++) {
     if ((header[i] & mask) != (((unsigned char)(-1)) & mask)) {
-//      char word[8*N];
-//      for (int j=0*N; j<32*(int)N; j++) {
-//        itoa(header[j], word, 2);
-//        printf(" Word (vlba): %03d %16s\n", j, word);
-//      }
       std::cout << "Invalid VLBA frame : No syncword found " << i << std::endl;
       return false;
     }
